@@ -5,8 +5,24 @@
 </head>
 <body>
 
+
+
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
+<video id="video" width="640" height="480" autoplay></video>
 
+
+<script type="text/javascript">
+  var videoPreview = document.getElementById('video');
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+      videoPreview.srcObject = stream;
+
+    }).catch(function() {
+      console.log('error')
+    });
+  }
+
+</script>
 </body>
 </html>
